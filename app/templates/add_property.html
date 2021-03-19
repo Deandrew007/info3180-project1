@@ -16,6 +16,10 @@
             {{ form.title }}
         </div><br>
         <div class="formelement">
+          <h6>{{ form.propertyDesc.label}}<p class="required">(Required)</p></h6>
+          {{ form.propertyDesc}}
+         </div>
+        <div class="formelement">
             <h6>{{ form.NoOfBedrooms.label}}<p class="required"> (Required)</p></h6>
             {{ form.NoOfBedrooms}}
         </div><br>
@@ -24,10 +28,6 @@
             {{ form.NoOfBathrooms}}
         </div><br>
         <div class="formelement">
-            <h6>{{ form.location.label}}<p class="required">(Required)</p></h6>
-            {{ form.location}}
-        </div>
-        <div class="formelement">
           <h6>{{ form.price.label}}<p class="required">(Required)</p></h6>
           {{ form.price}}
       </div>
@@ -35,10 +35,11 @@
         <h6>{{ form.propertyType.label}}<p class="required">(Required)</p></h6>
         {{ form.propertyType}}
        </div>
-       <div class="formelement">
-        <h6>{{ form.propertyDesc.label}}<p class="required">(Required)</p></h6>
-        {{ form.propertyDesc}}
-       </div>
+        <div class="formelement">
+            <h6>{{ form.location.label}}<p class="required">(Required)</p></h6>
+            {{ form.location}}
+        </div>
+
        <div class="formelement">
         <h6>{{ form.photo.label}}<p class="required">(Required)</p></h6>
         {{ form.photo}}
