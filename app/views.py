@@ -6,8 +6,8 @@ This file creates your application.
 """
 
 from app import app
-from flask import render_template, request, redirect, url_for
-
+from flask import render_template, request, redirect, url_for, flash
+from app.add_property_form import AddPropertyForm
 
 ###
 # Routing for your application.
@@ -24,10 +24,15 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
-@app.route('/property/')
-def newProperty():
+@app.route('/property/', methods=['POST', 'GET'])
+def addProperty():
+    form = AddPropertyForm()
+    if form.validate_on_submit():
+        flash('Property was successfully Added!')
+        return redirect(url_for('addProperty'))
+        flash_errors(form)
     """Render the website's about page."""
-    return render_template('new_property.html')
+    return render_template('add_property.html', form=form)
 
 @app.route('/properties/')
 def allProperties():
