@@ -6,9 +6,11 @@ This file creates your application.
 """
 
 from app import app, db
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from app.add_property_form import AddPropertyForm
 from app.models import PropertyModel
+from werkzeug.utils import secure_filename
+import os
 
 ###
 # Routing for your application.
@@ -28,7 +30,26 @@ def about():
 @app.route('/property/', methods=['POST', 'GET'])
 def addProperty():
     form = AddPropertyForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit() and request.method == 'POST':
+        # get property data
+        title = request.form["title"]
+        propertyDesc = request.form["propertyDesc"]
+        NoOfBedrooms = request.form["NoOfBedrooms"]
+        NoOfBathrooms = request.form["NoOfBathrooms"]
+        price = request.form["price"]
+        propertyType = request.form["propertyType"]
+        location = request.form["location"]
+        
+        #handle image upload
+        imageString = form.photo.data
+        secureImageString = secure_filename(imageString.filename)
+        imageString.save(os.path.join(app.config['UPLOAD_FOLDER'], secureImageString))
+
+        data = PropertyModel(title,propertyDesc, NoOfBedrooms, NoOfBathrooms, price, propertyType, location, secureImageString)
+
+        db.session.add(data)
+        db.session.commit()
+
         flash('Property was successfully Added!')
         return redirect(url_for('addProperty'))
         flash_errors(form)

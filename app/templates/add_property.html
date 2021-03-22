@@ -9,8 +9,9 @@
   <div class="container">
     <h2><b>Add New Property</b></h2>
     <hr>
-    <form action="{{ url_for('addProperty') }}" method="post">
-      {{ form.csrf_token }}
+
+    <form action="{{ url_for('addProperty') }}" method="POST" enctype="multipart/form-data">
+       {{ form.csrf_token }}
       <div class="formelement">
             <h6>{{ form.title.label }}  <p class="required"> (Required)</p> </h6>
             {{ form.title }}

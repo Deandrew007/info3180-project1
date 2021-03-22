@@ -9,11 +9,11 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 class AddPropertyForm(FlaskForm):
     csrf = CSRFProtect(app)
     title = TextField('Title', validators=[DataRequired()])
-    propertyDesc = TextAreaField('propertyDesc', validators=[DataRequired()])
-    NoOfBedrooms = TextField('NoOfBedrooms', validators=[DataRequired()])
-    NoOfBathrooms = TextField('NoOfBathrooms', validators=[DataRequired()])
-    price = TextField('price', validators=[DataRequired()])
-    propertyType = SelectField('propertyType', validators=[DataRequired()])
-    location = TextField('location', validators=[DataRequired()])
-    photo = FileField('propertyImage', validators=[DataRequired()])
+    propertyDesc = TextAreaField('Property Description', validators=[DataRequired()])
+    NoOfBedrooms = TextField('Number of Bedrooms', validators=[DataRequired()])
+    NoOfBathrooms = TextField('Number of Bathrooms', validators=[DataRequired()])
+    price = TextField('Price', validators=[DataRequired()])
+    propertyType = SelectField("Property Type", choices=[('1', 'House'), ('2', 'Apartment')], validators = [DataRequired()]) 
+    location = TextField('Location', validators=[DataRequired()])
+    photo = FileField('Property Image', validators=[DataRequired()])
 
