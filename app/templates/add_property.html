@@ -8,49 +8,47 @@
 <div class="jumbotron">
   <div class="container">
     <h2><b>Add New Property</b></h2>
-    <hr>
 
     <form action="{{ url_for('addProperty') }}" method="POST" enctype="multipart/form-data">
        {{ form.csrf_token }}
-      <div class="formelement">
-            <h6>{{ form.title.label }}  <p class="required"> (Required)</p> </h6>
-            {{ form.title }}
-        </div><br>
-        <div class="formelement">
-          <h6>{{ form.propertyDesc.label}}<p class="required">(Required)</p></h6>
-          {{ form.propertyDesc}}
+      <div class="form-card">
+            <h6>{{ form.title.label (class="form-label") }} </h6>
+            {{ form.title (class="form-field")}}
+        </div>
+        <div class="form-card">
+          <h6>{{ form.propertyDesc.label (class="form-label") }}</h6>
+          {{ form.propertyDesc (class="form-field") }}
          </div>
-        <div class="formelement">
-            <h6>{{ form.NoOfBedrooms.label}}<p class="required"> (Required)</p></h6>
-            {{ form.NoOfBedrooms}}
-        </div><br>
-        <div class="formelement">
-            <h6>{{ form.NoOfBathrooms.label}}<p class="required"> (Required)</p></h6>
-            {{ form.NoOfBathrooms}}
-        </div><br>
-        <div class="formelement">
-          <h6>{{ form.price.label}}<p class="required">(Required)</p></h6>
-          {{ form.price}}
+         <div class = "form-grid">
+         <div class="form-card">
+            <h6>{{ form.NoOfBedrooms.label (class="form-label") }}</h6>
+            {{ form.NoOfBedrooms (class="form-field")}}
+        </div>
+        <div class="form-card">
+            <h6>{{ form.NoOfBathrooms.label (class="form-label") }}</h6>
+            {{ form.NoOfBathrooms (class="form-field") }}
+        </div>
+        <div class="form-card">
+          <h6>{{ form.price.label  (class="form-label") }}</h6>
+          {{ form.price (class="form-field") }}
       </div>
-      <div class="formelement">
-        <h6>{{ form.propertyType.label}}<p class="required">(Required)</p></h6>
-        {{ form.propertyType}}
+      <div class="form-card">
+        <h6>{{ form.propertyType.label (class="form-label") }}</h6>
+        {{ form.propertyType (class="form-field") }}
        </div>
-        <div class="formelement">
-            <h6>{{ form.location.label}}<p class="required">(Required)</p></h6>
-            {{ form.location}}
+      </div>   
+        <div class="form-card1">
+            <h6>{{ form.location.label (class="form-label") }}</h6>
+            {{ form.location  (class="form-field") }}
         </div>
 
-       <div class="formelement">
-        <h6>{{ form.photo.label}}<p class="required">(Required)</p></h6>
-        {{ form.photo}}
-       </div>      
-        <button type="submit" class="addPropertyBtn">Add Property</button>
+       <div class="form-card1">
+        <h6>{{ form.photo.label (class="form-label") }}</h6>
+        {{ form.photo (class="form-field") }}
+       </div>   
+        <button type="submit" class="add-property-btn">Add Property</button>
     </form>
   </div>
 </div>
 {% endblock %}
 
-{% block js %}
-<script src="{{ url_for('static', filename='js/app.min.js') }}" charset="utf-8"></script>
-{% endblock %}

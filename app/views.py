@@ -6,7 +6,7 @@ This file creates your application.
 """
 
 from app import app, db
-from flask import render_template, request, redirect, url_for, flash, session
+from flask import render_template, request, redirect, url_for, flash, session, send_from_directory
 from app.add_property_form import AddPropertyForm
 from app.models import PropertyModel
 from werkzeug.utils import secure_filename
@@ -51,20 +51,28 @@ def addProperty():
         db.session.commit()
 
         flash('Property was successfully Added!')
-        return redirect(url_for('addProperty'))
+        return redirect(url_for('allProperties'))
         flash_errors(form)
     """Render the website's about page."""
     return render_template('add_property.html', form=form)
 
 @app.route('/properties/')
 def allProperties():
+    properties = PropertyModel.query.all()
     """Render the website's about page."""
-    return render_template('all_properties.html')
+    return render_template('all_properties.html', properties = properties)
 
-@app.route('/property/<propertyid>')
-def singleProperty(propertyid):
+@app.route('/property/<propertyId>')
+def singleProperty(propertyId):
+    properties = PropertyModel.query.filter_by(id=propertyId).first()
+
     """Render the website's about page."""
-    return render_template('single_property.html')
+    return render_template('single_property.html', properties=properties)
+
+@app.route('/images/<filename>')
+def fetchImage(filename):
+    rootdir = os.getcwd()
+    return  send_from_directory(os.path.join(rootdir,app.config['UPLOAD_FOLDER']),filename)
 
 ###
 # The functions below should be applicable to all Flask apps.

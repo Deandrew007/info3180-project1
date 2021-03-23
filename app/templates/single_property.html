@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
-{% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-{% endblock %}
-
 {% block main %}
+
+{% include 'flashes_messages.html' %}
+
 <div class="jumbotron">
   <div class="container">
-    <h1>Single Property</h1>
-    <p>This is a simple starter template for a Flask Application</p>
+    <h1 class="header">Single Property</h1>
+    <div class = "properties">
+          {{properties.title}}
+          {{properties.propertyDesc}}
+          {{properties.NoOfBedrooms}}
+          {{properties.NoOfBathrooms}}
+          {{properties.price}}
+          {{properties.propertyType}}
+          {{properties.location}}
+          <img class ='propertyImg' src = "{{ url_for('fetchImage', filename= properties.photo) }}" alt ="Picture">
+
+      </div>
+      <button class="btn" type="submit">Email Realtor</button>
   </div>
 </div>
 {% endblock %}

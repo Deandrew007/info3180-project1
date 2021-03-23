@@ -7,7 +7,7 @@ class PropertyModel(db.Model):
     # to `user_profiles` (plural) or some other name.
     __tablename__ = 'properties'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
     title = db.Column(db.String(80))
     propertyDesc = db.Column(db.String(160))
     NoOfBedrooms = db.Column(db.String(10))
