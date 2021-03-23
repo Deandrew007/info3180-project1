@@ -5,19 +5,19 @@
 {% include 'flashes_messages.html' %}
 
 <div class="jumbotron">
-  <div class="container">
-    <h1 class="header">Properties</h1>
-    <div class = 'properties'>
+    <h1>Properties</h1>
+    <div class = 'properties-grid'>
       {% for property in properties %} 
-          <div class = "propertytiles">
-              {{property.title}}
-              {{property.location}}
-              {{property.price}}
-              <img class ='propertyImg' src = "{{ url_for('fetchImage', filename= property.photo) }}" alt ="Picture">
+          <div class = "properties-card">
+            <img class ='property-img' src = "{{ url_for('fetchImage', filename= property.photo) }}" alt ="Picture">
+              <div class="p-title"> {{property.title}} </div>
+              <div class="p-location">{{property.location }} </div>
+              <div class="p-price">{{property.price }}</div>
+              <br>
+              <button type="submit" class="view-property-btn" > <a href="{{url_for('singleProperty', propertyId = property.id)}}" >View Property</a></button>
+
           </div>
-          <button class="btn" type="submit"><a href="{{url_for('singleProperty', propertyId = property.id)}}" >View Property</a></button>
       {%endfor%}
-  </div>
   </div>
 </div>
 {% endblock %}
