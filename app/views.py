@@ -71,8 +71,8 @@ def singleProperty(propertyId):
 
 @app.route('/images/<filename>')
 def fetchImage(filename):
-    rootdir = os.getcwd()
-    return  send_from_directory(os.path.join(rootdir,app.config['UPLOAD_FOLDER']),filename)
+    rootdirectory = os.getcwd()
+    return  send_from_directory(os.path.join(rootdirectory,app.config['UPLOAD_FOLDER']),filename)
 
 ###
 # The functions below should be applicable to all Flask apps.
