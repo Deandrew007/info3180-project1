@@ -134,3 +134,108 @@ form{
     width: 100%;
 
 }   
+
+/* View Single Property */
+.single-property-grid{
+    display: grid;
+    grid-gap:20px;
+    grid-template-columns: repeat(2, auto);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.s-row{
+    display:grid;
+    grid-gap:20px;
+    grid-template-columns: 30% 30%;
+    
+}
+
+
+.s-title{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 26px;
+    padding: 8px;
+}
+
+.s-image{
+    width: 100%;
+    height:100%;
+    border-radius: 5px, 5px, 0px, 0px;
+
+}
+
+.s-price{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 100%;
+    margin-left: 15px;
+
+}
+
+.s-type{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin-left: 20px;
+    background-color: yellow;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 100%;
+}
+
+.s-description{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.s-rooms{
+    padding: 3px;
+    margin-left: 15px;
+    text-align: left;
+    font-size: 16px;
+}
+.s-location{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 15px;
+    text-align: left;
+}
+.email-btn{
+    margin-top: 20px;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+

@@ -5,24 +5,27 @@
 {% include 'flashes_messages.html' %}
 
 <div class="jumbotron">
-  <div class="container">
-    <h1 class="header">Single Property</h1>
-    <div class = "properties">
-          {{properties.title}}
-          {{properties.propertyDesc}}
-          {{properties.NoOfBedrooms}}
-          {{properties.NoOfBathrooms}}
-          {{properties.price}}
-          {{properties.propertyType}}
-          {{properties.location}}
-          <img class ='propertyImg' src = "{{ url_for('fetchImage', filename= properties.photo) }}" alt ="Picture">
+    <h1>Single Property</h1>
+    <div class = "single-property-grid">
+      <img class ='s-image' src = "{{ url_for('fetchImage', filename= properties.photo) }}" alt ="Picture">
+        <div class = property-details>
+          <div class="s-title"> {{properties.title}} </div>
 
+          <div class="s-row">
+            <div class="s-price"> {{properties.price}} </div>
+            <div class="s-type">{{properties.propertyType}} </div>
+          </div>
+          <div class="s-description"> {{properties.propertyDesc}}</div>
+
+          <div class="s-row">
+          <div class="s-rooms"> <span>Bedrooms: </span> {{properties.NoOfBedrooms}} </div>
+          <div class="s-rooms"> <span>Bathrooms: </span> {{properties.NoOfBathrooms}} </div>
+          </div>
+
+          <div class="s-location"> <span>Location: </span> {{properties.location}} </div>
+          <button class="email-btn" type="submit">Email Realtor</button>
+        </div>  
       </div>
-      <button class="btn" type="submit">Email Realtor</button>
-  </div>
 </div>
 {% endblock %}
 
-{% block js %}
-<script src="{{ url_for('static', filename='js/app.min.js') }}" charset="utf-8"></script>
-{% endblock %}
